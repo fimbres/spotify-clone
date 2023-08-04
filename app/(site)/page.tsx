@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main>
-      Spoty
+    <main className="text-green-500">
+      Main Content
     </main>
   )
 }
