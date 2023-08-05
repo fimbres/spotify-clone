@@ -5,6 +5,7 @@ import SideBar from '@/components/SideBar'
 import { SupabaseProvider } from '@/providers/SupabaseProvider'
 import { UserProvider } from '@/providers/UserProvider'
 import ModalProvider from '@/providers/ModalProvider'
+import { ToasterProvider } from '@/providers/ToasterProvider'
 
 const inter = Figtree({ subsets: ['latin'] })
 
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <ToasterProvider />
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider />
