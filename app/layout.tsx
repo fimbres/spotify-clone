@@ -2,6 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Figtree } from 'next/font/google'
 import SideBar from '@/components/SideBar'
+import { SupabaseProvider } from '@/providers/SupabaseProvider'
+import { UserProvider } from '@/providers/UserProvider'
 
 const inter = Figtree({ subsets: ['latin'] })
 
@@ -18,9 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SideBar>
-          {children}
-        </SideBar>
+        <SupabaseProvider>
+          <UserProvider>
+            <SideBar>
+              {children}
+            </SideBar>
+          </UserProvider>
+        </SupabaseProvider>
       </body>
     </html>
   )
