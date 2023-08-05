@@ -4,6 +4,7 @@ import { Figtree } from 'next/font/google'
 import SideBar from '@/components/SideBar'
 import { SupabaseProvider } from '@/providers/SupabaseProvider'
 import { UserProvider } from '@/providers/UserProvider'
+import ModalProvider from '@/providers/ModalProvider'
 
 const inter = Figtree({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <SupabaseProvider>
           <UserProvider>
+            <ModalProvider />
             <SideBar>
               {children}
             </SideBar>
