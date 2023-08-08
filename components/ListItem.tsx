@@ -1,5 +1,7 @@
 "use client";
 
+import { useAuthModal } from '@/hooks/useAuthModal';
+import { useUser } from '@/hooks/useUser';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react'
@@ -13,8 +15,15 @@ interface ListItemProps {
 
 const ListItem: React.FC<ListItemProps> = ({ image, name, href}) => {
   const router = useRouter();
+  const { user } = useUser();
+  const authModal = useAuthModal();
 
   const handleClick = () => {
+    if(!user){
+      authModal.onOpen();
+      return;
+    }
+    
     router.push(href);
   };
 
