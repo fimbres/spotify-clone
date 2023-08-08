@@ -2,7 +2,7 @@ import { Song } from "@/types";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-export const getSongsByUserId = async (): Promise<Song[]> => {
+export const getLikedSongs = async (): Promise<Song[]> => {
     const supabase = createServerComponentClient({
         cookies: cookies
     });
