@@ -1,12 +1,16 @@
 "use client";
 
-import React, { useEffect, useState } from 'react'
-import Modal from '@/components/Modal';
+import React, { useEffect, useState } from 'react';
 import AuthModal from '@/components/AuthModal';
 import UploadModal from '@/components/UploadModal';
+import { ProductWithPrice } from '@/types';
+import SubscribeModal from '@/components/SubscribeModal';
 
+interface ModalProviderProps {
+  products: ProductWithPrice[];
+}
 
-const ModalProvider = () => {
+const ModalProvider: React.FC<ModalProviderProps> = ({ products }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -25,6 +29,7 @@ const ModalProvider = () => {
     <>
       <AuthModal />
       <UploadModal />
+      <SubscribeModal products={products} />
     </>
   )
 }
